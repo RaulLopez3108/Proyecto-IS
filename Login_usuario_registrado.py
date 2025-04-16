@@ -1,6 +1,6 @@
 import flet as ft
 from flet import TextField, Checkbox, ElevatedButton, Text, Row, Column, ControlEvent
-
+from database import verificar_usuario,agregar_usuario
 
 def main(page: ft.Page):
     page.title = 'Pagina de bienvenida'
@@ -20,10 +20,24 @@ def main(page: ft.Page):
                 Text("¡La aplicacion que conecta todas las bibliotecas Unison!", size=15),
                 text_username := TextField(label='Usuario', width=200),
                 text_password := TextField(label='Contraseña', width=200, password=True),
+                ElevatedButton("Iniciar Sesion",on_click = lambda e: show_welcome() 
+                               if verificar_usuario(text_username.value,text_password.value) 
+                               else show_signup),
                 ElevatedButton("¿No tienes cuenta? Registrate", on_click=lambda e: show_signup()),
             ],
             alignment=ft.MainAxisAlignment.CENTER,
             horizontal_alignment=ft.CrossAxisAlignment.CENTER)
+        )
+    
+    def show_welcome():
+        
+        page.clean()
+
+        page.add(
+            Column([
+                Text("Bienvenido!!!"),
+                ElevatedButton("Back", on_click=lambda e: show_landing())
+            ])
         )
 
 
@@ -39,15 +53,19 @@ def main(page: ft.Page):
             button_submit.disabled = not all([text_username.value, text_password.value, checkbox_agree.value])
             page.update()
 
-        def submit(e: ControlEvent):
-            print("Signed up:", text_username.value)
-            page.clean()
-            page.add(Text(f"Thanks for signing up, {text_username.value}!", size=20))
+        def register(e: ControlEvent): 
+            username = text_username.value 
+            password = text_password.value
+            if agregar_usuario(username, password):
+                lbl_resultado2.value = "Usuario Agregado"
+            else:
+                lbl_resultado2.value = "Error al agregar el Usuario"
 
         text_username.on_change = validate
         text_password.on_change = validate
         checkbox_agree.on_change = validate
-        button_submit.on_click = submit
+        button_submit.on_click = register
+        lbl_resultado2 = ft.Text()
 
         page.clean()
         page.add(
@@ -60,9 +78,9 @@ def main(page: ft.Page):
                 ElevatedButton("Back", on_click=lambda e: show_landing())
             ],
             alignment=ft.MainAxisAlignment.CENTER,
-            horizontal_alignment=ft.CrossAxisAlignment.CENTER)
-        )
-
+            horizontal_alignment=ft.CrossAxisAlignment.CENTER),
+            
+        )     
 
     def show_login():
         page.title = "Log In"
