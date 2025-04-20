@@ -5,14 +5,14 @@ def conectar_db():
         host = "localhost",
         user = "root",
         password = "",
-        database = "prueba",
+        database = "usuarios",
         port = 3307
     ) 
 
 def verificar_usuario(username,password):
     conexion = conectar_db()
     cursor = conexion.cursor()
-    cursor.execute("SELECT password FROM tabla1 WHERE username = %s",(username,))
+    cursor.execute("SELECT CONTRASEÑA FROM usuarios WHERE USUARIO = %s",(username,))
     resultado = cursor.fetchone()
     if resultado and password == resultado[0]:
         return True
@@ -21,7 +21,7 @@ def verificar_usuario(username,password):
 def agregar_usuario(username,password):
     conexion = conectar_db()
     cursor = conexion.cursor()
-    cursor.execute("INSERT INTO tabla1 (username, password) VALUES (%s, %s)", (username, password))
+    cursor.execute("INSERT INTO usuarios (USUARIO, CONTRASEÑA) VALUES (%s, %s)", (username, password))
     conexion.commit()
     cursor.close()
 
