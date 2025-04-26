@@ -71,13 +71,13 @@ def buscar_libro(name):
     if not conexion:
         return False, "Error al conectar con la base de datos"
     try:
-        cursor = conexion.cursor()
-        cursor.execute( "SELECT FROM libros WHERE NOMBRE = %s",(name))
+        cursor = conexion.cursor()        
+        cursor.execute("SELECT * FROM libros WHERE NOMBRE = %s", (name,))
         resultado = cursor.fetchone()
         cursor.close()
         conexion.close()
-        if resultado: 
-            return True, "Se encontro el libro"
+        if resultado:
+            return True, f"Se encontró el libro: {resultado}" 
         return False, "El libro no se encuentra"
     except mysql.connector.Error as err:
         return False, f"Error al buscar libro: {err}"
@@ -89,7 +89,7 @@ def buscar_autor(name):
         return False, "Error al conectar con la base de datos"
     try:
         cursor = conexion.cursor()
-        cursor.execute("SELECT FROM libros WHERE NOMBRE = %s",(name))
+        cursor.execute("SELECT * FROM libros WHERE AUTOR = %s",(name,))
         resultado = cursor.fetchall()
         cursor.close()
         conexion.close()
@@ -105,7 +105,7 @@ def agregar_libro(name,author,publication,genre,synopsis):
         return False, "Error al conectar con la base de datos"
     try:
         cursor = conexion.cursor()
-        cursor.execute("INSERT INTO libros (NOMBRE, AUTOR, PUBLICACION, GENERO, SINOPSIS) VALUES (%s,%s,%s,%s,%s)"
+        cursor.execute("INSERT INTO libros (NOMBRE, AUTOR, PUBLICACION, GENERO, SINOPSIS) VALUES (%s,%s,%s,%s,%s)",
                      (name,author,publication,genre,synopsis))
         conexion.commit()
         cursor.close()

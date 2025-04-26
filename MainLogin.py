@@ -1,7 +1,7 @@
 import flet as ft
 import re
 from flet import TextField, Checkbox, ElevatedButton, Text, Column, ControlEvent, Container, alignment
-from database_utils import verificar_usuario, agregar_usuario
+from database_utils import verificar_usuario, agregar_usuario,buscar_libro,buscar_autor
 
 def main(page: ft.Page):
     page.title = 'Librería Búho​'
@@ -136,7 +136,7 @@ def main(page: ft.Page):
 
         nav_buttons = Column([
             ElevatedButton("Home", on_click=lambda e: navigate_to_section("Home")),
-            ElevatedButton("Buscar libros", on_click=lambda e: navigate_to_section("Buscar libros")),
+            ElevatedButton("Buscar libros", on_click=lambda e: show_search_books("Buscar libros")),
             ElevatedButton("Mis libros", on_click=lambda e: navigate_to_section("Mis libros")),
             ElevatedButton("Cerrar sesión", color = "red", on_click=logout),
         ],
@@ -163,15 +163,18 @@ def main(page: ft.Page):
 
         def show_search_books(e):
             page.clean()
-            search_text = TextField(label='Buscar libros', width=200)
+            search_text = TextField(label='Buscar libros o autor', width=200)
             search_button = ElevatedButton("Buscar", on_click=lambda e: search_books(search_text.value))
             message = Text("", color="red")
 
-            def search_books(query):
-                # Aquí iría la lógica para buscar libros
-                message.value = f"Buscando libros con '{query}'..."
-                page.update()
-
+            def search_books(query):               
+              libro_info = buscar_libro(query) or buscar_autor(query)
+              if libro_info:
+                  message.value = f"Libro encontrado: {libro_info}"     
+              else:
+                  message.value = "Libro no encontrado"                                          
+              page.update()            
+            
             content = Column([
                 Text("Buscar libros", size=24, weight="bold"),
                 search_text,
