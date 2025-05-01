@@ -9,6 +9,7 @@ CREATE TABLE usuarios (
     USUARIO VARCHAR(50) NOT NULL UNIQUE,
     CORREO VARCHAR(255) NOT NULL UNIQUE,
     CONTRASENA VARCHAR(255) NOT NULL,
+<<<<<<< HEAD
     CONTRASENA_ORIGINAL VARCHAR(50) NOT NULL
 );
 
@@ -19,3 +20,34 @@ CREATE TABLE libros (
     GENERO VARCHAR(20) NOT NULL,
     SINOPSIS VARCHAR(255) NOT NULL
 );
+=======
+    ROL ENUM('admin', 'usuario') NOT NULL DEFAULT 'usuario'
+);
+
+CREATE TABLE libros (
+    NOMBRE VARCHAR(50) NOT NULL,
+    AUTOR VARCHAR(50) NOT NULL,
+    PUBLICACION DATE NOT NULL,
+    GENERO VARCHAR(255) NOT NULL,
+    SINOPSIS TEXT(355) NOT NULL,
+    PORTADA VARCHAR(255)  -- Guardar nombre de imagen en la portada "HarryPotter.jpg"
+);
+
+DROP USER IF EXISTS 'admin'@'localhost';
+DROP USER IF EXISTS 'lector'@'localhost';
+
+CREATE USER IF NOT EXISTS 'admin'@'localhost' IDENTIFIED BY 'Admin1234!';
+GRANT ALL PRIVILEGES ON libreria.* TO 'admin'@'localhost';
+
+
+CREATE USER IF NOT EXISTS 'lector'@'localhost' IDENTIFIED BY 'Lector1234!';
+GRANT SELECT ON libreria.libros TO 'lector'@'localhost';
+GRANT SELECT ON libreria.usuarios TO 'lector'@'localhost';
+
+FLUSH PRIVILEGES;
+
+INSERT INTO usuarios (USUARIO, CORREO, CONTRASENA, ROL) 
+VALUES ('admin', 'admin@gmail.com', '$2b$12$YcCpCQyLVhHxsugvToppjuPApAqkrIXcIQb.pQAvW36sArfd2YyRy', 'admin')
+ON DUPLICATE KEY UPDATE USUARIO=USUARIO;
+
+>>>>>>> 0b3eac06e10ac0bd51906c64a31ab556aff7727e

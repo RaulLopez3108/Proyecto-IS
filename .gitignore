@@ -1,0 +1,39 @@
+# Archivos de Python generados
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Entornos virtuales
+.venv/
+venv/
+env/
+ENV/
+
+# Archivos de UV & Conda
+uv.lock
+*.conda
+.python-version
+*.toml
+
+# Archivos de configuración sensibles
+.env
+*.ini
+
+# Bases de datos locales
+*.sqlite
+*.db
+
+# Archivos temporales
+.DS_Store
+Thumbs.db
+
+# Archivos generados por IDEs
+.idea/
+.vscode/
+*.log
+
+# Otros archivos temporales
+*.pyc
+*.tmp
+tmp/
+temp/
