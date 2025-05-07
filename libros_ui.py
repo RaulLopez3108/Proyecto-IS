@@ -22,28 +22,27 @@ def mostrar_inventario_ui(page, content_column: Column, on_libro_click):
     page.update()
 
 def formulario_eliminar_ui(page, content_column: Column, nombre_libro, eliminar):
-    libro = database_utils.consultar_info_libro(nombre_libro)
-    content_column.controls.clear()
+    libro = database_utils.consultar_info_libro(nombre_libro)    
     nombre = libro[0]
     if not libro or libro == False:
         content_column.controls.append(Text("❗ No se pudo cargar la información del libro.", color="red"))
-    else:       
-
+    else:  
         aviso = ft.AlertDialog(
             modal=True,
             title=ft.Text("Confirmar"),
             content=ft.Text("Esta seguro que quiere eliminar este libro?"),
             actions=[
-                ft.ElevatedButton("Si",on_click=lambda e: eliminar(nombre)),
+                ft.ElevatedButton("Sí", on_click=lambda e: [eliminar(nombre), page.close(aviso)]),
                 ft.ElevatedButton("No",on_click=lambda e:page.close(aviso)),
             ],
             actions_alignment=ft.MainAxisAlignment.END,
             
         )
         content_column.controls.append(aviso)
+    page.update()
     page.dialig = aviso
     aviso.open = True
-    page.update()
+    
 
 def mostrar_info_libro_ui(page, content_column: Column, nombre_libro: str, on_back):
     libro = database_utils.consultar_info_libro(nombre_libro)
