@@ -5,8 +5,9 @@ Los alumnos podrán consultar fácilmente la disponibilidad de libros de su inte
 ## Miembros del equipo: 
 + Raul Leonardo Lopez Ruiz
 + Gabriela Aydee Miranda
++ + Fronted, diseño de la interfaz de usuario (UI)
 + Gael Juan Valenzuela
 + Jesus Alberto Paredes Barnett
 + Jesus Flores Lacarra
 
-  
+
