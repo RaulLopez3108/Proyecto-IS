@@ -9,4 +9,12 @@ Los alumnos podrán consultar fácilmente la disponibilidad de libros de su inte
 + Jesus Alberto Paredes Barnett
 + Jesus Flores Lacarra
 
+## Ficha técnica de la aplicación
++ Nombre: Librería Búho
++ Framework: Flet (python)
++ Tipo de app: Escritorio
++ Funcionalidades: inicio de sesión, registro de usuarios, validacion, panel de usuario y administrativo
++ Validacion: formato de correo, contraseña
++ Usuarios: Estudiantes(acceso general) y Administradores(acceso especial)
+
   
