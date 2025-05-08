@@ -69,7 +69,7 @@ def mostrar_info_libro_ui(page, content_column: Column, nombre_libro: str, on_ba
             Text(f"Autor: {autor}"),
             Text(f"Fecha de publicación: {publicacion}"),
             Text(f"Género: {genero}"),
-            Text(f"Sinopsis:", weight="bold"),
+            Text(f"Sinopsis:{sinopsis}", weight="bold"),
             Text(sinopsis, max_lines=10, overflow="ellipsis"),
             ElevatedButton("Volver", on_click=lambda e: on_back())
         ], spacing=10)
