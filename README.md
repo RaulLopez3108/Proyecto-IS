@@ -52,10 +52,10 @@ La aplicacion se desarrollo mediante la metodologia agil SCRUM, el cual se divid
 Aquí se incluyen los diagramas principales para la comprensión del sistema:
 
 #### Diagrama de Casos de Uso
-![Diagrama de Casos de Uso](imagenes/diagrama_casos_uso.png)
+![diagrama_casos_uso](https://github.com/user-attachments/assets/8568b271-c12d-4ff2-a5bf-769f9b5c2ab0)
 
 #### Diagrama Entidad-Relación
-![Diagrama ER](imagenes/diagrama_entidad_relacion.png)
+![diagrama_entidad_relación](https://github.com/user-attachments/assets/8671d1a2-d32a-476d-a19d-a1b98e5a87e0)
 
 ## Miembros del equipo: 
 + Raul Leonardo Lopez Ruiz
