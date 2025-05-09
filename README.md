@@ -21,7 +21,12 @@ a los usuarios:
 ## 2 Arquitectura del sistema 
 
 ### 2.1 Diagrama General
-- diagramas de entidad relacion y casos de uso
+Aquí se incluyen los diagramas principales para la comprensión del sistema:
+#### Diagrama de Casos de Uso
+![diagrama_casos_uso](https://github.com/user-attachments/assets/8568b271-c12d-4ff2-a5bf-769f9b5c2ab0)
+
+#### Diagrama Entidad-Relación
+![diagrama_entidad_relación](https://github.com/user-attachments/assets/8671d1a2-d32a-476d-a19d-a1b98e5a87e0)
 
 ### 2.2 Tecnologias utilizadas
 + Backend: Python 
@@ -47,15 +52,10 @@ La aplicacion se desarrollo mediante la metodologia agil SCRUM, el cual se divid
 + Fase 3: Desarrollo (backend, base de datos,consultas a la base de datos)
     Empezamos haciendo el login y el registro de nuevos usuarios, verificamos que los usuarios nuevos se vean reflejados en la base de datos, a partir de tener el login desarrollamos las funciones de agregar, eliminar y buscar un libro, despues las funciones para ver la lista de usuarios 
 
-### 4 Diagramas
 
-Aquí se incluyen los diagramas principales para la comprensión del sistema:
 
-#### Diagrama de Casos de Uso
-![diagrama_casos_uso](https://github.com/user-attachments/assets/8568b271-c12d-4ff2-a5bf-769f9b5c2ab0)
 
-#### Diagrama Entidad-Relación
-![diagrama_entidad_relación](https://github.com/user-attachments/assets/8671d1a2-d32a-476d-a19d-a1b98e5a87e0)
+
 
 ## Miembros del equipo: 
 + Raul Leonardo Lopez Ruiz
