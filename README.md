@@ -47,7 +47,15 @@ La aplicacion se desarrollo mediante la metodologia agil SCRUM, el cual se divid
 + Fase 3: Desarrollo (backend, base de datos,consultas a la base de datos)
     Empezamos haciendo el login y el registro de nuevos usuarios, verificamos que los usuarios nuevos se vean reflejados en la base de datos, a partir de tener el login desarrollamos las funciones de agregar, eliminar y buscar un libro, despues las funciones para ver la lista de usuarios 
 
+### 4 Diagramas
 
+Aquí se incluyen los diagramas principales para la comprensión del sistema:
+
+#### Diagrama de Casos de Uso
+![Diagrama de Casos de Uso](imagenes/diagrama_casos_uso.png)
+
+#### Diagrama Entidad-Relación
+![Diagrama ER](imagenes/diagrama_entidad_relacion.png)
 
 ## Miembros del equipo: 
 + Raul Leonardo Lopez Ruiz
